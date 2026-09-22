@@ -632,9 +632,12 @@ export class MeasureControl implements IControl {
    */
   collapse(): void {
     if (this._state.collapsed) return;
+    console.log(this._state.measurements);
     this._state.collapsed = true;
     this._hidePanel();
+    console.log(this._state.measurements);
     this._emit("collapse");
+    console.log(this._state.measurements);
   }
 
   /**
@@ -656,6 +659,8 @@ export class MeasureControl implements IControl {
       this._panel = this._createPanel();
       this._container.appendChild(this._panel);
     }
+
+    this._panel.style.display = "block";
     this._button?.classList.add("active");
 
     // Opening the tool puts the map straight into drawing mode so the user can
@@ -671,8 +676,11 @@ export class MeasureControl implements IControl {
    */
   private _hidePanel(): void {
     this._stopDrawing();
-    this._panel?.remove();
-    this._panel = undefined;
+    
+    if (this._panel) {
+      this._panel.style.display = "none";
+    }
+    
     this._button?.classList.remove("active");
   }
 
