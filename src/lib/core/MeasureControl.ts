@@ -676,11 +676,11 @@ export class MeasureControl implements IControl {
    */
   private _hidePanel(): void {
     this._stopDrawing();
-    
+
     if (this._panel) {
       this._panel.style.display = "none";
     }
-    
+
     this._button?.classList.remove("active");
   }
 
