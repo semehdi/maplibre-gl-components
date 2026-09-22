@@ -632,12 +632,9 @@ export class MeasureControl implements IControl {
    */
   collapse(): void {
     if (this._state.collapsed) return;
-    console.log(this._state.measurements);
     this._state.collapsed = true;
     this._hidePanel();
-    console.log(this._state.measurements);
     this._emit("collapse");
-    console.log(this._state.measurements);
   }
 
   /**
